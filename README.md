@@ -6,7 +6,6 @@ Thanks!
 
 
 # Vier-Gewinnt
-Python Game
 Just a commandline game
-Made out of fun and for practice.
-Code is based on code from TheMorpheus407(His TicTacToe tutorial)
+made out of fun and for practice.
+Code is based on code from TheMorpheus407 (His TicTacToe tutorial).
