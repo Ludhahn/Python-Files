@@ -1,0 +1,86 @@
+from math import sqrt
+
+if __name__ == '__main__':
+    
+    
+    '''def onlyTuples(s):
+        for x in s:
+            if not type(x) is tuple:
+                return False
+            return True'''
+        
+    def onlyTuples(s):
+        return all(map(lambda x: type(x) is tuple, s))
+    
+    def rightUnique(f):
+        for x1, y1 in f:
+            for x2, y2 in f:
+                if x1 == x2 and y1 != y2:
+                    return False
+        return True
+    
+    def isFunction(f):
+        return type(f) is set and onlyTuples(f) and rightUnique(f)
+    
+    def domain(f):
+        return map(lambda t: t[0], f)
+    
+    def range(f):
+        return map(lambda t: t[1], f)
+    
+    print (list(domain({(1,2),(2,3),(4,8),(5,18)})))
+    print (list(range({(1,2),(2,3),(4,8),(5,18)})))
+    
+    def isInjektiv(f):
+        for x1, y1 in f:
+            for x2, y2 in f:
+                if x1 != x2 and y1 == y2:
+                    return False
+        return True
+    
+    def turnFarround(f):
+        result = set()
+        for x1, y1 in f:
+            result.add((y1,x1))
+        return result
+    
+    def invRel (f):
+        return set(map(lambda t: (t[1], t[0], f)))
+    
+    def injective(f):
+        return rightUnique(invRel(f))
+        
+    print (turnFarround({(1,2),(2,3),(4,8),(5,18)}))      
+    
+    def isSurjektiv(f,A):
+        return set (range(f)) == A
+  
+    def isBijektiv(f,A):
+        if isInjektiv(f) and isSurjektiv(f,A):
+            return True
+        return False
+    
+    def composition(f,g):
+        comp = set()
+        for x1f, y1f in f:
+            for x1g, y1g in g:
+                if y1f == x1g:
+                    comp.add((x1f,y1g))
+                    break
+        return comp
+    
+    f = {(1,2),(2,4),(3,23),(4,23)}            
+    g = {(2,7),(23,8),(42,9)}
+    
+    print (list(composition(f,g)))
+    print (list(composition(g,f)))
+    
+    def functionF(A):
+        return map(lambda t: t[0] *2 + t[1])
+    
+    def functionG(B):
+        return map(lambda t: (t[0] * t[0]) * sqrt(t[1]))
+    
+        
+    
+    

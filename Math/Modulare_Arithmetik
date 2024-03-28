@@ -50,10 +50,11 @@ if __name__ == '__main__':
         else:
             n = -n
             digitSum(n)
+            
     def iterativeDigitSum(n):
         while n > 9:
             n = digitSum(n)
         return n
     
-    print (digitSum(333333))
+    print (digitSum(30))
     print (iterativeDigitSum(333333))

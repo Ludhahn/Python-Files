@@ -1,0 +1,33 @@
+# %%
+from sympy import primepi 
+import matplotlib.pyplot as plt
+
+
+if __name__=='__main__':
+    
+    def primeFactors (n):
+        result = []
+        c = 2
+        while n > 1:
+            while True:
+                if n % c == 0:
+                    result.append(c)
+                    n //= c
+                    break
+                c += 1
+        return result
+    
+    print (primeFactors(238))
+    
+    def makePrimeList(n):
+        primeList = [primepi(n)]
+        
+        return primeList
+    
+    print (makePrimeList(1000))
+    
+
+    
+    ratios = [(10**k) / primepi(10**k) for k in range (1,9)]
+    plt.scatter(list(range(1,9)), ratios)
+# %%

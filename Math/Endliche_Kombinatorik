@@ -1,0 +1,136 @@
+if __name__ == '__main__':
+    
+    def pair (a,b):
+        return frozenset({frozenset({a}), frozenset({a, b})})
+    
+    print (pair(4,2) == pair(8,4))
+    
+    def cartesianProduct(A,B):
+        product = []
+        for elementOfA in A:
+            for elementOfB in B:
+                product.append((elementOfA,elementOfB))
+        return product
+
+    #print (cartesianProduct({1,2,3,4} ,{1,5,6,7}))
+    
+    def cartesianProdukt2 (A, B):
+        return {(a, b) for a in A for b in B}
+    
+    #print (cartesianProduct(cartesianProduct({1,2}, {3,4}), {5,6}))
+    #print (cartesianProduct({1,2}, cartesianProduct({3,4},{5,6})))
+    
+    def intersectectionOfSets(A,B):
+        intersection =set()
+        for elementOfA in A:
+            for elementOfB in B:
+                if elementOfA == elementOfB:
+                    intersection.add(elementOfA)
+        return intersection
+    
+    def unionOfSets(A,B):
+        union = set()
+        for elementOfA in A:
+            if not union.__contains__(elementOfA):
+                union.add(elementOfA)
+        for elementOfB in B:
+            if not union.__contains__(elementOfB):
+                union.add(elementOfB)
+        return union
+    
+    def relativeComplementOfSets(A,B):
+        relativeComplement = set()
+        for elementOfA in A:
+            if not B.__contains__(elementOfA):
+                relativeComplement.add(elementOfA)
+        return relativeComplement
+
+    def unionOfFourSets(A,B,C,D):
+        return (unionOfSets(A,unionOfSets(B,unionOfSets(C,D))))
+    
+    def unionOfThreeSets(A,B,C):
+        return (unionOfSets(A, unionOfSets(B,C)))
+    
+    def intersectionOfFourSets(A,B,C,D):
+        return (intersectectionOfSets(A,intersectectionOfSets(B,intersectectionOfSets(C,D))))
+    
+    
+    print (intersectectionOfSets({1,2,3,4,5,6,7,8,9},{7,8,9,10,11,12}))
+    print (unionOfSets({1,2,3,4,5,6,7,8,9},{7,8,9,10,11,12}))
+    print (relativeComplementOfSets({1,2,3,4,5,6,7,8,9},{7,8,9,10,11,12}))
+    
+    def oddNumbers(n):
+        oddNumbers = set()
+        for i in range(n):
+            if i % 2 !=0:
+                oddNumbers.add(i)
+        return oddNumbers
+    
+    def oddNumbers3(n):
+        oddNumbers3 = set()
+        for i in range(n):
+            if i % 3 != 0 :
+                oddNumbers3.add(i)
+        return oddNumbers3
+    
+    def oddNumbers5(n):
+        oddNumbers5 = set()
+        for i in range(n):
+            if i % 5 != 0:
+                oddNumbers5.add(i)
+        return oddNumbers5
+    
+    def oddNumbers7(n):
+        oddNumbers7 = set()
+        for i in range(n):
+            if i % 7 != 0:
+                oddNumbers7.add(i)
+        return oddNumbers7
+    
+    def doubleDigits(n):
+        doubleDigits = set()
+        for i in range(10,100):
+            doubleDigits.add(i)
+        return doubleDigits
+    
+    def identicalDigits(n):
+        identicalDigits = set()
+        for i in range(10):
+            identicalDigits.add(i)
+        for i in range(10,100):
+            if i % 11 == 0:
+                identicalDigits.add(i)
+        for i in range(100,1000):
+            if i % 111 == 0:
+                identicalDigits.add(i)
+        return identicalDigits
+            
+    def evenNumbers7(n):
+        oddNumbers7 = set()
+        for i in range(n):
+            if i % 7 == 0:
+                oddNumbers7.add(i)
+        return oddNumbers7
+        
+
+            
+            
+    print (len(intersectionOfFourSets(oddNumbers(1000),oddNumbers3(1000),oddNumbers5(1000),oddNumbers7(1000))))
+
+    print (len(unionOfThreeSets(identicalDigits(0),doubleDigits(0),evenNumbers7(1000))))
+    
+    def sum (s, a, b):
+        result = 0
+        k = a
+        while k <= b:
+            result += s(k)
+            k += 1
+        return result
+    
+    def square (k):
+        return k*k
+    
+    def n(n):
+        return 4*n
+    
+    print (sum(n,0,30))

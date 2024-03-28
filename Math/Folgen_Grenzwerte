@@ -1,0 +1,44 @@
+from fractions import Fraction
+
+if __name__ == '__main__':
+    
+    
+    def harmonics():
+        n = 1
+        while n < 500:
+            yield Fraction(1,n)
+            n += 1
+            
+    print(list(harmonics()))
+    
+    
+    def fn1():
+        n=0
+        while n < 500:
+            yield pow(3,n)
+            n +=1
+            
+    
+    def fn2():
+        val = Fraction(1)
+        while True:
+            yield val
+            val *=3
+            
+    def fn3():
+        n = 0
+        m = 1
+        while n < 500:
+            n += m
+            yield n
+            m += 1
+            
+    print (list(fn2()))
+    
+    
+    def someValues (seq, L = [5 **k for k in range(10)]):
+        for n in L:
+            print ("{>15}: {}".format(n, seq(n)))
+            
+    
+    someValues(lambda n: n / (n + 1))

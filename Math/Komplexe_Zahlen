@@ -1,0 +1,59 @@
+from sympy import I
+from sympy import expand
+from math import sqrt
+from math import atan 
+
+
+if __name__ == '__main__':
+    
+    print ((5+3j)*(3+2j))
+    print ((6+2j)*(2+2j))
+    
+    z = -5 + 2j
+    w = complex(2,3)
+    
+    print (z.real)
+    print (z.imag)
+    print (w.real)
+    print (w.imag)
+    
+    print ((-5+2j)* (2+3j))
+    print (z*w)
+    
+    
+    def complexAdd(A,B):
+        return ((A[0]+B[0]) , (A[1]+B[1]))
+
+
+    def complexMult(A,B):
+        return ((A[0]*B[0])-(A[1]*B[1]) , (A[0]*B[1]+A[1]*B[0]))
+        
+        
+        
+    A = (-5,2)
+    B = (2,3)
+        
+    print (complexMult(A,B))
+    print (complexAdd(A,B))
+        
+            
+    print (I*I)
+    print ((3+3*I)*(7-7*I))
+    print (expand((3+3*I)*(7-7*I)))
+    print (expand((-5+2*I)* (2+3*I)))
+    print (abs(3+4j))
+    
+    
+    def complexDiv(A,B): 
+        invB = (B[0],-B[1])
+        C = complexMult(B,invB)
+        D = complexMult(A,invB)
+        return ((D[0]/C[0]), D[1]/C[0])
+    
+    print (complexDiv((7,26),(3,4)))
+    
+    def complexAbs(A):
+        return sqrt(A[0]*A[0]+A[1]*A[1])
+    
+    def complexArg(A):
+        return (atan((A[0]/A[1])))

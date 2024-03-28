@@ -1,0 +1,49 @@
+from Test import absValueFn
+
+if __name__ == '__main__':
+    
+    
+    
+    def naivGGT (A,B):
+        if A < 0:
+            A = -A
+        if B < 0:
+            B = -B
+        GGT = 0
+        if A > B :
+            for i in range (B,0,-1):
+              if B % i == 0 and A % i == 0:
+                  GGT = i 
+                  break
+        else:
+            for i in range (A,0,-1):
+                if B % i == 0 and A % i == 0:
+                  GGT = i
+                  break 
+        return GGT
+    
+    print (naivGGT(44,36))
+    
+    def GCD (a,b):
+        while a != b:
+            if b > a:
+                a, b = b, a
+            a = a - b
+        return a
+    
+    print (GCD(233,144))
+    
+    def GCD2 (a,b):
+        while a != b :
+            if b > a:
+                a, b = b, a
+            if b > 0:
+                a = a % b
+            else:
+                break
+        return a
+    
+    print (GCD2(233,144))
+    
+    
+        
